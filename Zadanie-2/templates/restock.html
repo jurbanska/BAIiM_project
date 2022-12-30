@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Dodaj artykuł{% endblock %}
+
+{% block content %}
+
+<div id="content">
+
+<br><br>
+
+<h1>Witamy w naszym sklepie on-line</h1>
+<h2>Dodaj artykuł do sklepu</h2><br>
+
+<form action="?" method="GET" onsubmit="addItem();return false;">
+	Nazwa artykułu: <input type="text" id="itemName" value=""/> <br><br>
+	Ilość: <input type="text" id="itemQuantity" value=""/> <br><br>
+	Cena: <input type="text" id="itemPrice" value=""/> <br><br>
+	<input class="button" type="submit" value="Submit" />
+</form>
+
+<br><br>
+
+<p id="stat"></p>
+
+</div>
+{% endblock %}

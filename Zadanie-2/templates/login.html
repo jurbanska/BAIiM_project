@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Zaloguj się do serwisu{% endblock %}
+
+{% block content %}
+
+<div id="content">
+
+<br><br>
+
+<h1>Witamy w naszym sklepie on-line</h1>
+<h2>Panel Logowania</h2><br>
+
+<form action="?" method="POST" onsubmit="login();return false;">
+	Nazwa użytkownika: <input type="text" id="uname" value=""/>
+  Hasło: <input type="password" id="passw" value=""/>
+	<input class="button" type="submit" value="Login" />
+</form>
+
+<br><br>
+
+<p id="stat"></p>
+
+</div>
+{% endblock %}
