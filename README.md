@@ -60,7 +60,7 @@ var queryTextEl = document.querySelector('#results pre');
 * zastanów się, jaki ma to wpływ
 
 ## Zadanie 2
-W tym zadaniu dokonasz podstawowego ataku SQL Injection, który pozwoli Ci na dostęp do konta administratora w serwisie internetowym. Do jego wykonania wymagane jest użycie języka Python.
+W tym zadaniu dokonasz podstawowego ataku SQL Injection, który pozwoli Ci na wykradnięcie wrażliwych danych kont utworzonych w serwisie internetowym. Do jego wykonania wymagane jest zainstalowanie języka Python oraz podstawowa wiedza o składni zapytań bazodanowych.
 
 * W celu uruchomienia serwera przejdź do katalogu Zadanie-2
 * Uruchom serwer atakowanej witryny internetowej poprzez wykonanie polecenia `python main.py`
@@ -86,6 +86,11 @@ woda' UNION SELECT username,password,3 from employees;--
 Przeanalizuj powyższe polecenia i zastanów się skąd wynikają poszczególne ich elementy.
 
 Dlaczego atak nie powiedzie się podając tylko złośliwe zapytanie SQL?
+
+Możesz także spróbować swoich sił wykorzystując dostępne podatności:
+* Strona wyszukiwania artykułów jest podatna na ataki SQL Injection
+* Strona dodania artykułu jest podatna na ataki XSS
+* Strona logowanie jest także podatna na ataki SQL Injection, co pozwala na ominięcie logowania
 
 ## Zadanie 3
 Twoim ostatnim zadaniem jest samodzielne dokonanie serii ataków XSS. Wyzwanie składa się z 6 poziomów, w ramach których należy ominąć zaimplementowane zabezpieczenia.
