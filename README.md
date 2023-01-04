@@ -60,6 +60,13 @@ var queryTextEl = document.querySelector('#results pre');
 * zastanów się, jaki ma to wpływ
 
 ## Zadanie 2
+W tym zadaniu dokonasz podstawowego ataku SQL Injection, który pozwoli Ci na dostęp do konta administratora w serwisie internetowym. Do jego wykonania wymagane jest użycie języka Python.
+
+* W celu uruchomienia serwera przejdź do katalogu Zadanie-2
+* Uruchom serwer atakowanej witryny internetowej poprzez wykonanie polecenia `python main.py`
+* Przejdź do serwisu sklepu dostępnego pod adresem: http://localhost:5000
+* (Opcjonalnie) zapoznaj się z zawartością tabeli dostępnych produktów - obraz "Produkty.png"
+
 Poniżej znajduje się instrukcja dotycząca używania poleceń SQL dla ataków typu injection w bazie danych SQLite (screen tabeli dostępnych produktów znajduje się w folderze Zadanie-2):
 * Sprawdź, czy atak injection może zadziałać, wpisując następujące polecenie (`sqlite_master` to domyślna tabela w bazie danych SQLite, która przechowuje informacje o każdej tabeli w bazie danych):
 ```
