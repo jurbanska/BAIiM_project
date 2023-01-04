@@ -2,12 +2,15 @@
 Command Injection, Code Injection i Cross-Site Scripting
 
 ## Wymagania
-* Node.js
 * Git (git clone)
+* Node.js
+* Python 3.10 (lub nowszy)
+* Docker
+* Docker-compose
 
 ## Wstęp
 * Sklonuj repozytorium (git clone)
-* Zainstaluj pakiety Nodel.js zdefiniowane w `package.json` z pomocą poniższej komendy:
+* Zainstaluj pakiety Node.js zdefiniowane w `package.json` z pomocą poniższej komendy:
 ```
 npm install
 ```
@@ -52,26 +55,45 @@ node evil-server.js
 * Możemy zmienić ją tak, aby `val` trakowane było jako tekst. W tym celu dodaj poniższy kod na końcu funkcji "showQueryAndResults".
 ```
 var queryTextEl = document.querySelector('#results pre');
-	queryTextEl.textContent = q;
+	queryTextEl.textContent = val;
 ```
 * zastanów się, jaki ma to wpływ
 
 ## Zadanie 2
-Poniżej znajduje się instrukcja dotycząca używania poleceń SQL dla ataków typu injection w bazie danych SQLite (screen z uzywanej bazy danych znajduje się w plikach):
+Poniżej znajduje się instrukcja dotycząca używania poleceń SQL dla ataków typu injection w bazie danych SQLite (screen tabeli dostępnych produktów znajduje się w folderze Zadanie-2):
 * Sprawdź, czy atak injection może zadziałać, wpisując następujące polecenie (`sqlite_master` to domyślna tabela w bazie danych SQLite, która przechowuje informacje o każdej tabeli w bazie danych):
 ```
-juice' UNION SELECT 1,2,3 from sqlite_master WHERE type="table"; --
+woda' UNION SELECT 1,2,3 from sqlite_master WHERE type="table"; --
 ```
 * Uzyskaj nazwy tabel z tabeli głównej (polecenie SQL zwraca informacje o tabeli):
 ```
-juice' UNION SELECT name,sql,3 from sqlite_master WHERE type="table"; --
+woda' UNION SELECT name,sql,3 from sqlite_master WHERE type="table"; --
 ```
 `name` i `sql` to kolumny w tabeli `sqlite_master`. `name` zwraca nazwę tabeli, a `sql` zwraca informacje SQL dotyczące tabeli (np. kolumny).
 * Uzyskaj informacje z dwóch kolumn i utwórz trzecią kolumnę:
 ```
-juice' UNION SELECT username,password,3 from employees;--
+woda' UNION SELECT username,password,3 from employees;--
  ```
 * Zwróć uwagę, że w kolumnie `password` pojawia się ciąg znaków. Zastanów się co możesz z nim zrobić. (podpowiedź: md5).
+
+Przeanalizuj powyższe polecenia i zastanów się skąd wynikają poszczególne ich elementy.
+
+Dlaczego atak nie powiedzie się podając tylko złośliwe zapytanie SQL?
+
+## Zadanie 3
+Twoim ostatnim zadaniem jest samodzielne dokonanie serii ataków XSS. Wyzwanie składa się z 6 poziomów, w ramach których należy ominąć zaimplementowane zabezpieczenia.
+
+
+W celu uruchomienia serwera wykonaj poniższe kroki:
+* Zainstaluj program [docker](https://docs.docker.com/get-docker/) oraz [docker-compose](https://docs.docker.com/compose/install/).
+* Przejdź do katalogu Zadanie-3 (folder zawierający plik docker-compose.yml)
+* Wykonaj polecenie `sudo docker-compose up`
+* Przejdź do wyzwań dostępnych pod adresem: http://localhost:9003
+
+
+Jeśli podczas wykonywania polecenia `docker-compose up` napotkasz problemy upewnij się, że usługa docker'a została uruchomiona. W przeciwnym wypadku wykonaj polecenie `sudo systemctl start docker`.
+
+Jeżeli problem nadal występuje, należy całkowicie zresetować pracę usługi poprzez polecenie `sudo systemctl restart docker`.
 
 
 ## Bibliografia
